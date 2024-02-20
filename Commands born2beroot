@@ -1,0 +1,49 @@
+
+Command to check the status of a service:
+
+systemctl status <service_ name>
+
+when you make change to etc file "configrtion files", you must restart those services to ensure the change will excute. command and ex:
+	
+	sudo systemctl restart sshd
+
+Command about hostname.
+These 2 commands for checking info:
+	1. hostnamectl set-hostname <Host_name>
+	2. vim /etc/hosts
+	
+
+The right way to install packages using apt:
+
+	First check for updates: 	sudo apt update
+	Second install the package: sudo apt install package_name
+
+
+To list all the users on the system:
+	cut -d : -f1 /etc/passwd
+	
+To list all groups on the system:
+	cat /etc/group
+
+To add a user to a group:
+	sudo usermod -aG sudo <username>
+
+
+To delet a user:
+	sudo userdel <username>
+
+To delet a group:
+	sudo groupdel group_name
+
+To delet a user from a specif group:
+	sudo gpasswd -d john developers
+
+	
+To creat a new user without assiging it to a group with it's name:
+	sudo adduser --ingroup users john 
+	
+	
+Command to check type of encryption used in the LVM group:
+	- sudo cryptsetup status /dev/mapper/sda5_crypt
+	
+

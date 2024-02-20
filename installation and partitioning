@@ -1,0 +1,57 @@
+
+Born2beroot Instaltion Process:
+
+Configuring Virtual Box: 
+	- in the virtual box click new
+	- Add the image and choose the path, it will be better to store it in sgoinfre
+	- type linux, version Debian 64
+	- hard disk: create a virtual hard disk now
+	- choose VDI
+	- Dynamically allocated
+	- hard disk size: 30.80
+	- Then click START
+	- Choose Debian image "iso"
+
+Installation Phase:
+	- Choose install 
+	- Hostname must be yourlogin42 "ouboukou42"
+	- Password: 2BerootPass*
+	- The username for your account must be your username in 42 "ouboukou"
+
+Partitioning the hard disk:
+	- Choose manual
+	- Choose SCSI2 (sda) => YES
+	- Choose pri-log => create a new partition
+	- Partitions Size:
+		- boot = 525m => Primary => beginning = mount point > boot > and done
+		- max and do not mount it
+		- Configure encrypted volumes => Create encrypted volume and then choose the logical part
+		- enter Password
+
+	- Configure logical volume => yes => display configuration details => Continue > create volume group
+	- Write "LVMgroup > Continue > choose logical part
+	=> Create a logical volume and here you will start giving each part a size.
+		- root 10.7g
+		- swap 2.5g
+		- home 5.4g
+		- var 3.2g
+		- srv 3.2g
+		- tmp 3.2g
+		- var-log 4.3g
+	
+	In this part, we only give each partition a name and size => and then finish.
+	
+	The next step is to mount each of these parts.
+	All parts are simple to mount, except swap and var/log, var log you should mount it manually, and give it /var/log.
+
+and then write changes to the disk.
+
+- Then a window will pop up "Configure the package manager", choose "NO" => US => deb.debian.org => in HTTP window choose continue.
+
+- Survey participants choose "NO"
+
+- in software selection windows, remove all * and continue
+
+- in install the GRUB loader choose "yes" => choose /dev/sda
+
+And hre we goo! Done. 
